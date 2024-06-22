@@ -1,22 +1,23 @@
 SRC_DIR = src
 OBJ_DIR = obj
 
-CC = gcc
-CFLAGS = -Wall -g
+CC = g++
+FLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
-SOURCES = $(shell find $(SRC_DIR) -name '*.c')
-OBJECTS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SOURCES))
+
+SOURCES = $(shell find $(SRC_DIR) -name '*.cpp')
+OBJECTS = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
 
 EXEC = output/app
 
 all: $(EXEC)
 
 $(EXEC): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) -o $@ $^ $(FLAGS)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR) $(EXEC)
