@@ -1,0 +1,4 @@
+pertama bikin array dari fungsi fungsi void yang didalamnya ada draw dari sfml untuk dijalankan ke window dan untuk simpan fungsi fungsi ke array, maka harus menggunakan linkedlist agar bisa lebih dynamic
+
+
+dan memodifikasi gui hanya sebagai class yang terpisah
